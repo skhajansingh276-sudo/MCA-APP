@@ -1,0 +1,274 @@
+[
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable-nodpi_mdu_bg.jpg.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable-nodpi/mdu_bg.jpg"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_fragment_msc_cs_details.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/fragment_msc_cs_details.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_diploma.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_diploma.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_activity_pdf_viewer.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/activity_pdf_viewer.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_divider_gradient.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/divider_gradient.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_syllabus.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_syllabus.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_dot_inactive.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/dot_inactive.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_megaphone.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_megaphone.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_sessional_test.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_sessional_test.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_contact.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_contact.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_pyqs_bank.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_pyqs_bank.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_course.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_course.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/anim_slide_up_fade_in.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/anim/slide_up_fade_in.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_bg_resource_card.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/bg_resource_card.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_fragment_courses.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/fragment_courses.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_bg_circle_button.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/bg_circle_button.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_fragment_subject_folders.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/fragment_subject_folders.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_bg_drawer_inactive.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/bg_drawer_inactive.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_chevron_left.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_chevron_left.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable-nodpi_developer_profile.jpg.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable-nodpi/developer_profile.jpg"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/font_poppins_bold_ttf.ttf.flat",
+        "source": "com.mca.csdepartment.app-main-34:/font/poppins_bold_ttf.ttf"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_fragment_home.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_menu.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_menu.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_bg_drawer_active.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/bg_drawer_active.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_bg_badge.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/bg_badge.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_item_document_card.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/item_document_card.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_fragment_help.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/fragment_help.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_fragment_resource_content.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/fragment_resource_content.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_bg_icon_circle.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/bg_icon_circle.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_monitor.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_monitor.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/font_poppins_bold.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/font/poppins_bold.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_dot_active.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/dot_active.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_item_carousel.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/item_carousel.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_fragment_about.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/fragment_about.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_help.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_help.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_bg_resource_card_active.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/bg_resource_card_active.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_resources.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_resources.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_assignments.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_assignments.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/anim_fade_in_up.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/anim/fade_in_up.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_tab_selector.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/tab_selector.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_table.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_table.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_practical_files.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_practical_files.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_activity_main.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_activity_profile_viewer.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/activity_profile_viewer.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_university_building.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/university_building.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_chevron_right.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_chevron_right.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_item_folder_card.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/item_folder_card.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_fragment_semester_detail.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/fragment_semester_detail.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_bg_msc_hero.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/bg_msc_hero.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_gmail.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_gmail.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_verified.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_verified.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/color_bottom_nav_color.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/color/bottom_nav_color.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/layout_fragment_contact.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/layout/fragment_contact.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_home.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_home.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_bg_resource_icon.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/bg_resource_icon.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_bg_dashed_border.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/bg_dashed_border.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_circle_primary.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/circle_primary.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_about.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_about.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_lecture_notes.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_lecture_notes.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_phone.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_phone.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_bg_solid_gray.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/bg_solid_gray.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_whatsapp.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_whatsapp.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/drawable_ic_school.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/drawable/ic_school.xml"
+    },
+    {
+        "merged": "com.mca.csdepartment.app-debug-32:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.mca.csdepartment.app-main-34:/mipmap-anydpi-v26/ic_launcher.xml"
+    }
+]

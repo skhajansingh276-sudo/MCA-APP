@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal - MCA App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: #f1f5f9; margin: 0; padding: 20px; color: #1e293b; }
+    .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    h2 { color: #1a4fa0; text-align: center; margin-bottom: 24px; }
+    .form-group { margin-bottom: 16px; }
+    label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #475569; }
+    select, input[type="text"], input[type="file"] { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: 'Poppins', sans-serif; box-sizing: border-box; }
+    button { width: 100%; background: #1a4fa0; color: white; border: none; padding: 12px; font-size: 16px; font-weight: 600; border-radius: 6px; cursor: pointer; transition: 0.2s; margin-top: 10px; }
+    button:hover { background: #153c7a; }
+    button:disabled { background: #94a3b8; cursor: not-allowed; }
+    .status { margin-top: 12px; font-size: 14px; text-align: center; font-weight: 600; }
+    .status.success { color: #10b981; }
+    .status.error { color: #ef4444; }
+  </style>
+
+  <!-- Supabase JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    // Initialize Supabase Client
+    const supabaseUrl = "https://uaagouglqhukybbxrvin.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVhYWdvdWdscWh1a3liYnhydmluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2ODk5NjMsImV4cCI6MjA5MDI2NTk2M30.sL0tlLziCuUCB3OB62RrQHShz-QWKkatQWg7YLH_8Z4";
+    const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+    async function uploadData() {
+      const course = document.getElementById('course').value;
+      const semester = document.getElementById('semester').value;
+      const resourceTypeRaw = document.getElementById('resourceType').value;
+      const subjectGroup = document.getElementById('subjectGroup');
+      const subject = document.getElementById('subject').value;
+      const title = document.getElementById('title').value;
+
+      // Handle subject-specific folders for MCA Semester 1 and Semester 4 Assignments / Sessionals / PYQs
+      let resourceType = resourceTypeRaw;
+      if (course === "mca" && (semester === "1" || semester === "4") && 
+          (resourceTypeRaw === "assignments" || resourceTypeRaw === "sessional_test" || resourceTypeRaw === "pyqs_bank")) {
+        
+        // Safety: Only use subject if the subject dropdown is visible
+        if (subjectGroup && subjectGroup.style.display !== "none" && subject) {
+          let prefix = "";
+          if (resourceTypeRaw === "assignments") prefix = "assignment_";
+          else if (resourceTypeRaw === "sessional_test") prefix = "sessional_";
+          else if (resourceTypeRaw === "pyqs_bank") prefix = "pyq_";
+          
+          resourceType = prefix + subject.toLowerCase();
+        }
+      }
+      const fileInput = document.getElementById('fileInput').files[0];
+      const statusText = document.getElementById('statusText');
+      const uploadBtn = document.getElementById('uploadBtn');
+
+      if (!title || !fileInput) {
+        statusText.textContent = "Please provide both a Title and select a file.";
+        statusText.className = "status error";
+        return;
+      }
+
+      // Debug log
+      console.log("Upload params:", { course, semester, resourceType, title, fileName: fileInput.name });
+
+      uploadBtn.disabled = true;
+      uploadBtn.textContent = "Uploading File to Storage...";
+      statusText.textContent = "";
+
+      try {
+        // 1. Upload File to Supabase Storage
+        const fileExt = fileInput.name.split('.').pop();
+        const fileName = `${Date.now()}_${Math.random().toString(36).substring(7)}.${fileExt}`;
+        const filePath = `${course}/semester_${semester}/${resourceType}/${fileName}`;
+
+        console.log("Storage path:", filePath);
+
+        const { data: uploadData, error: uploadError } = await supabaseClient
+          .storage
+          .from('documents')
+          .upload(filePath, fileInput, {
+            cacheControl: '3600',
+            upsert: false
+          });
+
+        if (uploadError) throw uploadError;
+
+        uploadBtn.textContent = "Saving Database Link...";
+
+        // 2. Get Public URL
+        const { data: urlData } = supabaseClient
+          .storage
+          .from('documents')
+          .getPublicUrl(filePath);
+          
+        const publicUrl = urlData.publicUrl;
+
+        // 3. Save reference in Database
+        const { error: dbError } = await supabaseClient
+          .from('documents')
+          .insert([
+            {
+              course: course,
+              semester: semester,
+              resource_type: resourceType,
+              title: title,
+              file_url: publicUrl
+            }
+          ]);
+
+        if (dbError) throw dbError;
+
+        statusText.textContent = `✅ File uploaded successfully! (resource_type: ${resourceType})`;
+        statusText.className = "status success";
+        document.getElementById('title').value = '';
+        document.getElementById('fileInput').value = '';
+
+      } catch (error) {
+        console.error("Upload error:", error);
+        statusText.textContent = "Error: " + error.message;
+        statusText.className = "status error";
+      } finally {
+        uploadBtn.disabled = false;
+        uploadBtn.textContent = "Upload Another File";
+        if(typeof fetchFiles === 'function') fetchFiles(); // Auto-refresh the list below
+      }
+    }
+
+    // --- MANAGE FILES FEATURE ---
+    async function fetchFiles() {
+      const container = document.getElementById('fileListContainer');
+      container.innerHTML = '<p style="text-align: center; color: #64748b;">Loading files from database...</p>';
+      
+      const { data, error } = await supabaseClient
+          .from('documents')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+      if (error) {
+        container.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+        return;
+      }
+
+      if (data.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: #64748b;">No files found.</p>';
+        return;
+      }
+
+      let html = `<table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
+        <tr style="background: #f8fafc; border-bottom: 2px solid #e2e8f0;">
+          <th style="padding: 12px; color: #475569;">Title</th>
+          <th style="padding: 12px; color: #475569;">Class</th>
+          <th style="padding: 12px; color: #475569;">Action</th>
+        </tr>`;
+
+      data.forEach(doc => {
+        const pathPart = doc.file_url ? doc.file_url.split('/documents/')[1] : '';
+
+        html += `
+        <tr style="border-bottom: 1px solid #e2e8f0;">
+          <td style="padding: 12px;"><strong>${doc.title}</strong><br><span style="font-size: 12px; color: #64748b;">${doc.resource_type.replace('_', ' ')}</span></td>
+          <td style="padding: 12px;">${doc.course.toUpperCase()}<br>Sem ${doc.semester}</td>
+          <td style="padding: 12px;">
+            <button onclick="deleteFile('${doc.id}', '${pathPart}', this)" style="background: #ef4444; padding: 6px 12px; margin: 0; font-size: 13px; width: auto;">Delete</button>
+          </td>
+        </tr>`;
+      });
+      html += `</table>`;
+      container.innerHTML = html;
+    }
+
+    async function deleteFile(id, storagePath, btn) {
+      if(!confirm("Are you sure you want to completely delete this file? This will instantly remove it from the students' app!")) return;
+
+      const originalText = btn.textContent;
+      btn.textContent = "Deleting...";
+      btn.disabled = true;
+
+      try {
+        // 1. Delete from Storage bucket
+        if (storagePath) {
+          const { error: storageError } = await supabaseClient.storage.from('documents').remove([storagePath]);
+          if(storageError) console.error("Storage delete error:", storageError);
+        }
+
+        // 2. Delete row from Database
+        const { error: dbError } = await supabaseClient.from('documents').delete().eq('id', id);
+        if (dbError) throw dbError;
+
+        fetchFiles(); // refresh list
+      } catch (err) {
+        alert("Error deleting: " + err.message);
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    }
+
+    // Filter Resource Types and Subjects
+    function filterResources() {
+      const course = document.getElementById('course').value;
+      const semester = document.getElementById('semester').value;
+      const resourceSelect = document.getElementById('resourceType');
+      const options = resourceSelect.querySelectorAll('option');
+      const bridgeOption = resourceSelect.querySelector('option[value="bridge_course"]');
+      const subjectGroup = document.getElementById('subjectGroup');
+
+      if (semester === "0") {
+        // Only allow 'Syllabus' for Entire Course
+        options.forEach(opt => {
+          if (opt.value === "syllabus") {
+            opt.style.display = "block";
+          } else {
+            opt.style.display = "none";
+          }
+        });
+        resourceSelect.value = "syllabus";
+        subjectGroup.style.display = "none";
+      } else {
+        // Show all standard options for regular semesters
+        options.forEach(opt => {
+          if (opt.value !== "bridge_course") {
+            opt.style.display = "block";
+          }
+        });
+
+        // Special case for Bridge Course: ONLY for MCA Semester 1
+        if (course === "mca" && semester === "1") {
+          bridgeOption.style.display = "block";
+        } else {
+          bridgeOption.style.display = "none";
+        }
+
+        // Show Subject folders for Assignments, Sessionals & PYQs (MCA Sem 1 and Sem 4)
+        if (course === "mca" && (semester === "1" || semester === "4") && 
+            (resourceSelect.value === "assignments" || resourceSelect.value === "sessional_test" || resourceSelect.value === "pyqs_bank")) {
+            subjectGroup.style.display = "block";
+            updateSubjectList(semester);
+        } else {
+            subjectGroup.style.display = "none";
+        }
+      }
+    }
+
+    function updateSubjectList(semester) {
+      const subjectSelect = document.getElementById('subject');
+      subjectSelect.innerHTML = '';
+      
+      if (semester === "1") {
+        subjectSelect.innerHTML = `
+          <option value="computer_graphics">Computer Graphics</option>
+          <option value="oops_java">Oops in Java</option>
+          <option value="digital_design_arch">Digital Design and Computer Architecture</option>
+          <option value="compiler_design">Compiler Design</option>
+          <option value="advanced_data_structure">Advanced Data Struture Using C++/Java</option>
+        `;
+      } else if (semester === "4") {
+        subjectSelect.innerHTML = `
+          <option value="Advance_Software_Engineering">Advance Software Engineering</option>
+          <option value="IoT_Sensor_Networks">IoT & Sensor Networks</option>
+          <option value="Web_Development_Using_DotNet">Web Development Using .NET Framework</option>
+          <option value="Cyber_Security_Blockchain">Cyber Security & Blockchain Technology</option>
+          <option value="Neural_Networks_Deep_Learning">Neural Networks & Deep Learning</option>
+        `;
+      }
+    }
+
+    window.onload = () => {
+      fetchFiles();
+      filterResources();
+      document.getElementById('semester').addEventListener('change', filterResources);
+      document.getElementById('course').addEventListener('change', filterResources);
+      document.getElementById('resourceType').addEventListener('change', filterResources);
+    };
+    // ----------------------------
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Admin Portal<br><span style="font-size: 14px; font-weight: normal; color: #64748b;">Upload Documents to Database</span></h2>
+  
+  <div class="form-group">
+    <label>Select Course</label>
+    <select id="course">
+      <option value="mca">MCA</option>
+      <option value="msc">M.Sc. Computer Science</option>
+      <option value="dsml">M.Sc. DSML</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Select Semester</label>
+    <select id="semester">
+      <option value="0">Entire Course Syllabus</option>
+      <option value="1">Semester 1</option>
+      <option value="2">Semester 2</option>
+      <option value="3">Semester 3</option>
+      <option value="4">Semester 4</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Resource Type Category</label>
+    <select id="resourceType">
+      <option value="lecture_notes">Lecture Notes</option>
+      <option value="pyqs_bank">PYQs Bank</option>
+      <option value="assignments">Assignments</option>
+      <option value="practical_files">Practical Files</option>
+      <option value="bridge_course">Bridge Course</option>
+      <option value="sessional_test">Sessional Test</option>
+      <option value="syllabus">Syllabus</option>
+    </select>
+  </div>
+
+  <div class="form-group" id="subjectGroup" style="display: none;">
+    <label>Select Subject Folder</label>
+    <select id="subject">
+      <option value="computer_graphics">Computer Graphics</option>
+      <option value="oops_java">Oops in Java</option>
+      <option value="digital_design_arch">Digital Design and Computer Architecture</option>
+      <option value="compiler_design">Compiler Design</option>
+      <option value="advanced_data_structure">Advanced Data Struture Using C++/Java</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>File Title (e.g. 'Unit 1 Assignment')</label>
+    <input type="text" id="title" placeholder="Enter file display title...">
+  </div>
+
+  <div class="form-group">
+    <label>Select Document (PDF, Image, Word)</label>
+    <input type="file" id="fileInput" accept="application/pdf, image/jpeg, image/png, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+  </div>
+
+  <button id="uploadBtn" onclick="uploadData()">Upload Securely</button>
+  <div id="statusText" class="status"></div>
+</div>
+
+<div class="container" style="margin-top: 30px; max-width: 800px; margin-bottom: 50px;">
+  <h2>Manage Uploaded Files</h2>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+    <p style="margin: 0; font-size: 14px; color: #475569;">All files currently visible to students in the App:</p>
+    <button onclick="fetchFiles()" style="background: #3b82f6; width: auto; padding: 6px 16px; margin: 0; font-size: 13px;">🔄 Refresh</button>
+  </div>
+  
+  <div id="fileListContainer" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
+    <!-- Rendered Database Here -->
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "538725389957",
+    "firebase_url": "https://mdu-cs-app-default-rtdb.firebaseio.com",
+    "project_id": "mdu-cs-app",
+    "storage_bucket": "mdu-cs-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538725389957:android:d2763ee3deaf4e33157bec",
+        "android_client_info": {
+          "package_name": "com.mca.csdepartment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqo0xb-a7siDP13ZpSox45wV13RCT1opk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

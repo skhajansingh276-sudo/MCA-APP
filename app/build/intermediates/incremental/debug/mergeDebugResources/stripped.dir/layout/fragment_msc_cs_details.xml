@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_light"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ── Hero Banner (MSc CS) ── -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_msc_hero"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="POSTGRADUATE PROGRAM"
+                    android:textColor="#DCE8FF"
+                    android:textSize="10sp"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_bold" />
+
+                <TextView
+                    android:id="@+id/tvCourseHeroTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MSc (C.S.)"
+                    android:textColor="@color/white"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:id="@+id/tvCourseHeroDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Master of Science in Computer Science. Advancing the frontiers of computational theory and architectural systems."
+                    android:textColor="#E0E7FF"
+                    android:textSize="13sp"
+                    android:lineSpacingMultiplier="1.4" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ── Course Level Resources (Syllabus) ── -->
+        <LinearLayout
+            android:id="@+id/btnCourseSyllabus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_resource_card_active"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:elevation="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_syllabus"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="View Full Course Syllabus"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:fontFamily="@font/poppins_bold"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- ── Semesters Grid ── -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:columnCount="2"
+            android:rowCount="2">
+
+            <!-- Card 1: Semester 1 (Dashed) -->
+            <LinearLayout
+                android:id="@+id/cardSemester1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bg_dashed_border"
+                android:padding="16dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Semester-1"
+                    android:textColor="@color/text_dark"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginTop="6dp" />
+            </LinearLayout>
+
+            <!-- Card 2: Semester 2 (Solid Active) -->
+            <LinearLayout
+                android:id="@+id/cardSemester2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bg_solid_gray"
+                android:padding="16dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Semester-2"
+                    android:textColor="@color/text_dark"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginTop="6dp" />
+            </LinearLayout>
+
+            <!-- Card 3: Semester 3 (Dashed) -->
+            <LinearLayout
+                android:id="@+id/cardSemester3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bg_dashed_border"
+                android:padding="16dp"
+                android:layout_marginEnd="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Semester-3"
+                    android:textColor="@color/text_dark"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginTop="6dp" />
+            </LinearLayout>
+
+            <!-- Card 4: Semester 4 (White/No Border) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSemester4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Semester-4"
+                        android:textColor="@color/text_dark"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:layout_marginTop="6dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
+
+        <!-- Removed Curated Resources -->
+
+        <View android:layout_width="match_parent" android:layout_height="32dp"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MDU MCA &amp; CS: Notes, Syllabus</string>
+    <string name="university_name">Maharshi Dayanand University</string>
+    <string name="established">ESTABLISHED 1976</string>
+    <string name="badge1">A State University established under Haryana Act No. XXV of 1975</string>
+    <string name="badge2">A+ Grade University Accredited by NAAC</string>
+    <string name="about_title">About the Department</string>
+    <string name="about_body">The Department of Computer Science &amp; Applications was established to provide quality education in computing and information technology.</string>
+    <string name="nav_home">HOME</string>
+    <string name="nav_course">COURSE</string>
+    <string name="nav_help">HELP</string>
+    <string name="nav_contact">CONTACT</string>
+    <string name="nav_about">ABOUT</string>
+</resources>

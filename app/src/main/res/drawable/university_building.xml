@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder for university_building -->
+<!-- Replace this file with an actual JPG/PNG photo of MDU University building -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:startColor="#1C3F7A"
+        android:centerColor="#2563EB"
+        android:endColor="#1A4FA0"
+        android:angle="135" />
+</shape>
