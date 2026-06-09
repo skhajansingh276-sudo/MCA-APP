@@ -1,8 +1,0 @@
-com.mca.csdepartment.app-pngs-0 C:\Users\intel\Downloads\MCA APP\app\build\generated\res\pngs\debug
-com.mca.csdepartment.app-updated_navigation_xml-1 C:\Users\intel\Downloads\MCA APP\app\build\generated\updated_navigation_xml\debug
-com.mca.csdepartment.app-packageDebugResources-2 C:\Users\intel\Downloads\MCA APP\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.mca.csdepartment.app-packageDebugResources-3 C:\Users\intel\Downloads\MCA APP\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.mca.csdepartment.app-debug-4 C:\Users\intel\Downloads\MCA APP\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.mca.csdepartment.app-debug-5 C:\Users\intel\Downloads\MCA APP\app\src\debug\res
-com.mca.csdepartment.app-main-6 C:\Users\intel\Downloads\MCA APP\app\src\main\res
-gradleHome-0 C:\Users\intel\.gradle
