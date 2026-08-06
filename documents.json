@@ -1,12 +1,5 @@
 [
   {
-    "course": "mca",
-    "semester": 1,
-    "resource_type": "syllabus",
-    "title": "MCA 1st Semester Syllabus",
-    "file_url": "https://example.com/mca_sem1_syllabus.pdf"
-  },
-  {
     "course": "msc",
     "semester": 1,
     "resource_type": "syllabus",
