@@ -4,30 +4,59 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.webkit.WebChromeClient
-import android.webkit.WebResourceRequest
-import android.webkit.WebSettings
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.github.barteksc.pdfviewer.PDFView
+import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
+import okhttp3.*
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 import java.net.URLEncoder
+
+import android.view.WindowManager
+import java.security.MessageDigest
+
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.android.gms.ads.FullScreenContentCallback
 
 class PdfViewerActivity : AppCompatActivity() {
 
     private var documentUrl: String = ""
     private var documentTitle: String = ""
+    private var courseId: String = ""
+    private var semesterNum: Int = 1
+
+    private lateinit var pdfView: PDFView
+    private lateinit var imageView: android.widget.ImageView
+    private lateinit var loadingContainer: LinearLayout
+    private lateinit var tvLoadingText: TextView
+
+    private var mInterstitialAd: InterstitialAd? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Load and show interstitial ad on open
+        loadAndShowInterstitial()
+        
+        // ── Security: Prevent Screenshots & Screen Recording ──
+        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
+        
         setContentView(R.layout.activity_pdf_viewer)
 
         documentTitle = intent.getStringExtra("EXTRA_TITLE") ?: "Document Viewer"
         documentUrl = intent.getStringExtra("EXTRA_URL") ?: ""
+        documentUrl = convertGoogleDriveUrl(documentUrl)
+        courseId = intent.getStringExtra("EXTRA_COURSE") ?: ""
+        semesterNum = intent.getIntExtra("EXTRA_SEMESTER", 1)
 
         // Setup Toolbar
         val toolbar = findViewById<Toolbar>(R.id.pdfToolbar)
@@ -36,78 +65,17 @@ class PdfViewerActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbar.setNavigationOnClickListener { finish() }
 
-        val webView = findViewById<WebView>(R.id.pdfWebView)
-        val imageView = findViewById<android.widget.ImageView>(R.id.pdfImageView)
-        val loadingContainer = findViewById<LinearLayout>(R.id.loadingContainer)
-        val tvLoadingText = findViewById<TextView>(R.id.tvLoadingText)
-
-        // Bottom bar actions
-        findViewById<LinearLayout>(R.id.btnDownload).setOnClickListener { downloadDocument() }
-        findViewById<LinearLayout>(R.id.btnShare).setOnClickListener { shareDocument() }
-        findViewById<LinearLayout>(R.id.btnOpenBrowser).setOnClickListener { openInBrowser() }
-
-        // Configure WebView for maximum performance
-        val settings: WebSettings = webView.settings
-        settings.javaScriptEnabled = true
-        settings.setSupportZoom(true)
-        settings.builtInZoomControls = true
-        settings.displayZoomControls = false
-        settings.domStorageEnabled = true
-        settings.allowFileAccess = true
-        settings.loadWithOverviewMode = true
-        settings.useWideViewPort = true
-        settings.cacheMode = WebSettings.LOAD_DEFAULT
-        settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
-        settings.setSupportMultipleWindows(false)
-        settings.blockNetworkImage = false
-        settings.loadsImagesAutomatically = true
-
-        webView.webViewClient = object : WebViewClient() {
-            override fun onPageFinished(view: WebView?, url: String?) {
-                loadingContainer.visibility = View.GONE
-                webView.visibility = View.VISIBLE
-            }
-
-            override fun onReceivedError(view: WebView?, errorCode: Int, description: String?, failingUrl: String?) {
-                tvLoadingText.text = "Failed to load document"
-            }
-
-            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-                return false // Let WebView handle all URLs
-            }
-        }
-
-        webView.webChromeClient = WebChromeClient()
+        pdfView = findViewById(R.id.pdfView)
+        imageView = findViewById(R.id.pdfImageView)
+        loadingContainer = findViewById(R.id.loadingContainer)
+        tvLoadingText = findViewById(R.id.tvLoadingText)
 
         if (documentUrl.isNotEmpty()) {
             val lowerUrl = documentUrl.lowercase()
             if (lowerUrl.endsWith(".jpg") || lowerUrl.endsWith(".jpeg") || lowerUrl.endsWith(".png") || lowerUrl.endsWith(".gif") || lowerUrl.endsWith(".webp")) {
-                // ── Image Viewer ──
-                webView.visibility = View.GONE
-                imageView.visibility = View.VISIBLE
-                tvLoadingText.text = "Loading image..."
-
-                com.bumptech.glide.Glide.with(this)
-                    .load(documentUrl)
-                    .listener(object : com.bumptech.glide.request.RequestListener<android.graphics.drawable.Drawable> {
-                        override fun onLoadFailed(e: com.bumptech.glide.load.engine.GlideException?, model: Any?, target: com.bumptech.glide.request.target.Target<android.graphics.drawable.Drawable>, isFirstResource: Boolean): Boolean {
-                            loadingContainer.visibility = View.GONE
-                            Toast.makeText(this@PdfViewerActivity, "Failed to load image", Toast.LENGTH_SHORT).show()
-                            return false
-                        }
-                        override fun onResourceReady(resource: android.graphics.drawable.Drawable, model: Any, target: com.bumptech.glide.request.target.Target<android.graphics.drawable.Drawable>?, dataSource: com.bumptech.glide.load.DataSource, isFirstResource: Boolean): Boolean {
-                            loadingContainer.visibility = View.GONE
-                            return false
-                        }
-                    })
-                    .into(imageView)
+                loadAsImage()
             } else {
-                // ── PDF/Doc Viewer using Google Docs Viewer ──
-                imageView.visibility = View.GONE
-                tvLoadingText.text = "Loading document..."
-                val encodedUrl = URLEncoder.encode(documentUrl, "UTF-8")
-                val docsUrl = "https://docs.google.com/gview?url=$encodedUrl&embedded=true"
-                webView.loadUrl(docsUrl)
+                checkCacheAndLoad()
             }
         } else {
             loadingContainer.visibility = View.GONE
@@ -115,48 +83,166 @@ class PdfViewerActivity : AppCompatActivity() {
         }
     }
 
-    private fun downloadDocument() {
-        if (documentUrl.isEmpty()) return
+    private fun loadAsImage() {
+        pdfView.visibility = View.GONE
+        imageView.visibility = View.VISIBLE
+        tvLoadingText.text = "Loading image..."
+
+        com.bumptech.glide.Glide.with(this)
+            .load(documentUrl)
+            .listener(object : com.bumptech.glide.request.RequestListener<android.graphics.drawable.Drawable> {
+                override fun onLoadFailed(e: com.bumptech.glide.load.engine.GlideException?, model: Any?, target: com.bumptech.glide.request.target.Target<android.graphics.drawable.Drawable>, isFirstResource: Boolean): Boolean {
+                    loadingContainer.visibility = View.GONE
+                    Toast.makeText(this@PdfViewerActivity, "Failed to load image", Toast.LENGTH_SHORT).show()
+                    return false
+                }
+                override fun onResourceReady(resource: android.graphics.drawable.Drawable, model: Any, target: com.bumptech.glide.request.target.Target<android.graphics.drawable.Drawable>?, dataSource: com.bumptech.glide.load.DataSource, isFirstResource: Boolean): Boolean {
+                    loadingContainer.visibility = View.GONE
+                    return false
+                }
+            })
+            .into(imageView)
+    }
+
+    private fun checkCacheAndLoad() {
+        val hash = md5(documentUrl)
+        val cacheFile = File(cacheDir, "pdf_$hash.pdf")
+
+        if (cacheFile.exists() && cacheFile.length() > 0) {
+            // File already in cache, load instantly!
+            renderPdf(cacheFile)
+        } else {
+            loadAsPdf(cacheFile)
+        }
+    }
+
+    private fun loadAsPdf(cacheFile: File) {
+        imageView.visibility = View.GONE
+        tvLoadingText.text = "Fetching document..."
         
-        val extension = android.webkit.MimeTypeMap.getFileExtensionFromUrl(documentUrl) ?: "pdf"
-        val fileName = "${documentTitle.replace(" ", "_")}.${if (extension.isNotEmpty()) extension else "pdf"}"
-
-        try {
-            val request = android.app.DownloadManager.Request(Uri.parse(documentUrl))
-                .setTitle("Downloading $documentTitle")
-                .setDescription("Saving document to your Downloads folder")
-                .setNotificationVisibility(android.app.DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                .setDestinationInExternalPublicDir(android.os.Environment.DIRECTORY_DOWNLOADS, fileName)
-
-            val downloadManager = getSystemService(android.content.Context.DOWNLOAD_SERVICE) as android.app.DownloadManager
-            downloadManager.enqueue(request)
-
-            Toast.makeText(this, "⬇ Download Started...", Toast.LENGTH_SHORT).show()
-        } catch (e: Exception) {
-            Toast.makeText(this, "Failed to download: ${e.message}", Toast.LENGTH_LONG).show()
-        }
-    }
-
-    private fun shareDocument() {
-        if (documentUrl.isEmpty()) return
-        try {
-            val shareIntent = Intent(Intent.ACTION_SEND).apply {
-                type = "text/plain"
-                putExtra(Intent.EXTRA_SUBJECT, documentTitle)
-                putExtra(Intent.EXTRA_TEXT, "Check out this document: $documentTitle\n$documentUrl")
+        val request = Request.Builder().url(documentUrl).build()
+        com.mca.csdepartment.network.HttpClient.instance.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                runOnUiThread {
+                    loadingContainer.visibility = View.GONE
+                    Toast.makeText(this@PdfViewerActivity, "Connection error", Toast.LENGTH_SHORT).show()
+                }
             }
-            startActivity(Intent.createChooser(shareIntent, "Share via"))
-        } catch (e: Exception) {
-            Toast.makeText(this, "Unable to share", Toast.LENGTH_SHORT).show()
-        }
+
+            override fun onResponse(call: Call, response: Response) {
+                if (!response.isSuccessful) {
+                    runOnUiThread {
+                        loadingContainer.visibility = View.GONE
+                        Toast.makeText(this@PdfViewerActivity, "Server error: ${response.code}", Toast.LENGTH_SHORT).show()
+                    }
+                    return
+                }
+
+                try {
+                    // Stream body directly to file for speed and memory efficiency
+                    val body = response.body ?: throw IOException("Empty response body")
+                    val inputStream = body.byteStream()
+                    val outputStream = FileOutputStream(cacheFile)
+                    
+                    val buffer = ByteArray(8 * 1024)
+                    var bytesRead: Int
+                    while (inputStream.read(buffer).also { bytesRead = it } != -1) {
+                        outputStream.write(buffer, 0, bytesRead)
+                    }
+                    outputStream.flush()
+                    outputStream.close()
+                    inputStream.close()
+
+                    runOnUiThread {
+                        renderPdf(cacheFile)
+                    }
+                } catch (e: Exception) {
+                    if (cacheFile.exists()) cacheFile.delete()
+                    runOnUiThread {
+                        loadingContainer.visibility = View.GONE
+                        Toast.makeText(this@PdfViewerActivity, "Failed to download", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        })
     }
 
-    private fun openInBrowser() {
-        if (documentUrl.isEmpty()) return
-        try {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(documentUrl)))
-        } catch (e: Exception) {
-            Toast.makeText(this, "No browser found", Toast.LENGTH_SHORT).show()
+    private fun renderPdf(file: File) {
+        loadingContainer.visibility = View.GONE
+        pdfView.visibility = View.VISIBLE
+        
+        pdfView.fromFile(file)
+            .enableSwipe(true)
+            .swipeHorizontal(false)
+            .enableDoubletap(true)
+            .defaultPage(0)
+            .enableAnnotationRendering(true)
+            .password(null)
+            .scrollHandle(DefaultScrollHandle(this))
+            .enableAntialiasing(true)
+            .spacing(10)
+            .autoSpacing(true)
+            .pageFitPolicy(com.github.barteksc.pdfviewer.util.FitPolicy.WIDTH)
+            .pageSnap(true)
+            .pageFling(true)
+            .nightMode(false) // Can be toggled if needed
+            .load()
+    }
+
+    private fun md5(s: String): String {
+        val digest = MessageDigest.getInstance("MD5")
+        digest.update(s.toByteArray())
+        val messageDigest = digest.digest()
+        val hexString = StringBuilder()
+        for (aMessageDigest in messageDigest) {
+            var h = Integer.toHexString(0xFF and aMessageDigest.toInt())
+            while (h.length < 2) h = "0$h"
+            hexString.append(h)
         }
+        return hexString.toString()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // We keep the cache files for faster future loading
+        // They are in cacheDir which Android can clean up if storage is low.
+    }
+
+    private fun loadAndShowInterstitial() {
+        val adRequest = AdRequest.Builder().build()
+        // Using Live interstitial ad unit ID
+        InterstitialAd.load(this, "ca-app-pub-2060768890902501/2439327626", adRequest,
+            object : InterstitialAdLoadCallback() {
+                override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    mInterstitialAd = interstitialAd
+                    mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
+                        override fun onAdDismissedFullScreenContent() {
+                            mInterstitialAd = null
+                        }
+
+                        override fun onAdFailedToShowFullScreenContent(adError: com.google.android.gms.ads.AdError) {
+                            mInterstitialAd = null
+                        }
+                    }
+                    if (!isFinishing && !isDestroyed) {
+                        mInterstitialAd?.show(this@PdfViewerActivity)
+                    }
+                }
+
+                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                    mInterstitialAd = null
+                }
+            })
+    }
+
+    private fun convertGoogleDriveUrl(url: String): String {
+        if (url.contains("drive.google.com/file/d/")) {
+            val parts = url.split("drive.google.com/file/d/")
+            if (parts.size > 1) {
+                val idPart = parts[1].split("/")[0]
+                return "https://drive.google.com/uc?export=download&id=$idPart"
+            }
+        }
+        return url
     }
 }

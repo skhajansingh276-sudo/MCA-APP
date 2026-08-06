@@ -1,9 +1,6 @@
 // ── CS Department App — app.js ──
 
-// Initialize Supabase Client
-const supabaseUrl = "https://uaagouglqhukybbxrvin.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVhYWdvdWdscWh1a3liYnhydmluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2ODk5NjMsImV4cCI6MjA5MDI2NTk2M30.sL0tlLziCuUCB3OB62RrQHShz-QWKkatQWg7YLH_8Z4";
-const supabase = window.supabase ? window.supabase.createClient(supabaseUrl, supabaseKey) : null;
+// Documents are stored in documents.json offline.
 
 
 // ── Navigation History Stack ──
@@ -236,11 +233,6 @@ document.querySelectorAll('.course-card').forEach(card => {
       if(detailTitle) detailTitle.textContent = 'MCA';
       if(detailSub) detailSub.textContent = '2 Year Programme • 4 Semesters';
       navigateTo('screen-semesters', 'MCA');
-    } else if (course === 'dsml' || course === 'phd') {
-      activeCourseId = 'dsml';
-      if(detailTitle) detailTitle.textContent = 'M.Sc. DSML';
-      if(detailSub) detailSub.textContent = '2 Year Programme • 4 Semesters';
-      navigateTo('screen-semesters', 'M.Sc. DSML');
     }
   });
 });
@@ -360,11 +352,36 @@ function handlePyqsClick(el, event) {
     setTimeout(() => { if(el.style) el.style.transform = ''; }, 150);
   }
   
-  const folders = getSubjectFolders(activeCourseId, activeSemesterNum);
-  if (folders.length > 0) {
-    showSubjectFoldersScreen('PYQs Bank', 'Pyq', folders);
+  if (activeCourseId === 'mca' && activeSemesterNum == 1) {
+    const dropdown = document.getElementById('pyqs-dropdown');
+    const arrow = document.getElementById('pyqs-arrow');
+    if (dropdown) {
+      const isOpen = dropdown.classList.contains('open');
+      dropdown.classList.toggle('open');
+      if (arrow) arrow.style.transform = isOpen ? 'none' : 'rotate(90deg)';
+    }
   } else {
-    handleResourceClick(el, 'PYQs Bank', event);
+    const folders = getSubjectFolders(activeCourseId, activeSemesterNum);
+    if (folders.length > 0) {
+      showSubjectFoldersScreen('PYQs Bank', 'Pyq', folders);
+    } else {
+      handleResourceClick(el, 'PYQs Bank', event);
+    }
+  }
+}
+
+function handlePyqsSubClick(type, event) {
+  if (event) event.stopPropagation();
+  if (type === 'bridge') {
+    const folders = [
+      { displayName: "Computer Fundamental and Programming in C", dbKey: "comp_fundamental_c" },
+      { displayName: "Visual Basic", dbKey: "visual_basic" },
+      { displayName: "C++ and Data Structure", dbKey: "cpp_data_structure" }
+    ];
+    showSubjectFoldersScreen('Bridge Course PYQs', 'PyqBridge', folders);
+  } else {
+    const folders = getSubjectFolders(activeCourseId, activeSemesterNum);
+    showSubjectFoldersScreen('Non Bridge Course PYQs', 'Pyq', folders);
   }
 }
 
@@ -376,11 +393,13 @@ function handlePracticalClick(el, event) {
   }
   
   if (activeCourseId === 'mca' && activeSemesterNum == 1) {
-    const folders = [
-      { displayName: "Bridge Course", dbKey: "Bridge_Course" },
-      { displayName: "Lab Records / Manuals", dbKey: "Practical_Files" }
-    ];
-    showSubjectFoldersScreen('Practical Files', '', folders, true);
+    const dropdown = document.getElementById('practical-dropdown');
+    const arrow = document.getElementById('practical-arrow');
+    if (dropdown) {
+      const isOpen = dropdown.classList.contains('open');
+      dropdown.classList.toggle('open');
+      if (arrow) arrow.style.transform = isOpen ? 'none' : 'rotate(90deg)';
+    }
   } else {
     handleResourceClick(el, 'Practical Files', event);
   }
@@ -414,7 +433,7 @@ function showSubjectFoldersScreen(title, prefix, folders, exactMatch = false) {
   navigateTo('screen-subject-folders', title);
 }
 
-// ── Resource Item Click & Supabase Fetch ──
+// ── Resource Item Click & Offline Fetch ──
 function fetchAndShowResources(title, dbType) {
   const headerEl = document.getElementById('resource-content-header');
   if(headerEl) headerEl.textContent = title;
@@ -425,23 +444,30 @@ function fetchAndShowResources(title, dbType) {
   if (listContainer) listContainer.innerHTML = '';
   if (placeholderText) {
     placeholderText.style.display = 'block';
-    placeholderText.textContent = "Loading documents from Supabase...";
+    placeholderText.textContent = "Loading offline documents...";
   }
 
-  // Removed setTimeout to instantly load the screen
   (async () => {
     navigateTo('screen-resource-content', title);
     
     try {
-      const { data, error } = await supabase
-        .from('documents')
-        .select('title, file_url, created_at')
-        .eq('course', activeCourseId)
-        .eq('semester', activeSemesterNum)
-        .eq('resource_type', dbType)
-        .order('created_at', { ascending: false });
+      let response;
+      try {
+        response = await fetch('https://raw.githubusercontent.com/skhajansingh276-sudo/MCA-APP/main/documents.json');
+        if (!response.ok) throw new Error();
+      } catch(e) {
+        // Local fallback
+        response = await fetch('./documents.json');
+      }
+      if (!response.ok) throw new Error("Could not fetch documents.json");
+      const allDocs = await response.json();
 
-      if (error) throw error;
+      // Filter documents based on course, semester, and type
+      const data = allDocs.filter(doc => 
+        doc.course === activeCourseId &&
+        doc.semester === activeSemesterNum &&
+        doc.resource_type === dbType
+      );
 
       if (listContainer) listContainer.innerHTML = '';
       
@@ -499,7 +525,7 @@ function fetchAndShowResources(title, dbType) {
       } else {
         if (placeholderText) {
           placeholderText.style.display = 'block';
-          placeholderText.textContent = `No documents uploaded yet for ${title}. Use the Admin Portal to add files!`;
+          placeholderText.textContent = `No documents found yet for ${title}.`;
         }
       }
     } catch (err) {
@@ -511,7 +537,19 @@ function fetchAndShowResources(title, dbType) {
   })();
 }
 
+function convertGoogleDriveUrl(url) {
+  if (url.includes("drive.google.com/file/d/")) {
+    const parts = url.split("drive.google.com/file/d/");
+    if (parts.length > 1) {
+      const id = parts[1].split("/")[0];
+      return `https://drive.google.com/uc?export=download&id=${id}`;
+    }
+  }
+  return url;
+}
+
 function openPdfViewer(title, url) {
+  url = convertGoogleDriveUrl(url);
   const viewerTitle = document.getElementById('pdf-viewer-title');
   if (viewerTitle) viewerTitle.textContent = title || "PDF Document";
   
@@ -647,11 +685,6 @@ function openCourseFromDrawer(courseId, event) {
     if(detailTitle) detailTitle.textContent = 'MCA';
     if(detailSub) detailSub.textContent = '2 Year Programme • 4 Semesters';
     navigateTo('screen-semesters', 'MCA');
-  } else if (courseId === 'dsml') {
-    activeCourseId = 'dsml';
-    if(detailTitle) detailTitle.textContent = 'M.Sc. DSML';
-    if(detailSub) detailSub.textContent = '2 Year Programme • 4 Semesters';
-    navigateTo('screen-semesters', 'M.Sc. DSML');
   }
 }
 

@@ -1,0 +1,23 @@
+[
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyqbridge_cpp_data_structure",
+    "title": "c++",
+    "file_url": "https://drive.google.com/file/d/1Hwrs701kwGl1n78b0iCMMOakfekp5wPw/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "syllabus",
+    "title": "MCA 1st Semester Syllabus",
+    "file_url": "https://example.com/mca_sem1_syllabus.pdf"
+  },
+  {
+    "course": "msc",
+    "semester": 1,
+    "resource_type": "syllabus",
+    "title": "M.Sc. CS 1st Semester Syllabus",
+    "file_url": "https://example.com/msc_sem1_syllabus.pdf"
+  }
+]

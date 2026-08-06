@@ -8,6 +8,9 @@ import java.util.concurrent.TimeUnit
  * Reuses connections, pools threads, and has aggressive timeouts for fast loading.
  */
 object HttpClient {
+    // Configurable URL of documents.json hosted on GitHub Raw
+    const val DOCUMENTS_JSON_URL = "https://raw.githubusercontent.com/skhajansingh276-sudo/MCA-APP/main/documents.json"
+
     val instance: OkHttpClient by lazy {
         OkHttpClient.Builder()
             .connectTimeout(10, TimeUnit.SECONDS)
