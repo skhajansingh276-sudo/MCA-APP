@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 1,
+    "resource_type": "practical_files",
+    "title": "Digital Design and Computer Architecture",
+    "file_url": "https://drive.google.com/file/d/1IGwiaLox6q9m5i-bmau33sKCNyk5q16Q/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
     "resource_type": "bridge_course",
     "title": "C++ and Data Structure",
     "file_url": "https://drive.google.com/file/d/1peOlrrC3FiJJRyN39xfDrbaIzRZoUdlp/view?usp=drive_link"
