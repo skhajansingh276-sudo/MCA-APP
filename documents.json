@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 1,
+    "resource_type": "pyq_oops_java",
+    "title": "2021",
+    "file_url": "https://drive.google.com/file/d/18KyOiqYsFSybu9eClZw8AK2IIsTSCRru/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
     "resource_type": "pyq_computer_graphics",
     "title": "2023",
     "file_url": "https://drive.google.com/file/d/14fAzVolBgAZYxdIEKJqE1XIdYJJvDnMS/view?usp=sharing"
