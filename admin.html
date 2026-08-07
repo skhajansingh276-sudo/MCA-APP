@@ -324,6 +324,7 @@
         <option value="bridge_course">Bridge Course (Practical)</option>
         <option value="sessional_test">Sessional Test</option>
         <option value="syllabus">Syllabus</option>
+        <option value="project">Project</option>
       </select>
     </div>
 
@@ -469,14 +470,19 @@
     }
 
     let resource_type = resourceTypeRaw;
-    if (course === "mca" && (semester === 1 || semester === 4) && 
-        (resourceTypeRaw === "assignments" || resourceTypeRaw === "sessional_test" || resourceTypeRaw === "pyqs_bank" || resourceTypeRaw === "pyqs_bridge")) {
+    const isSem1Or4Folder = (semester === 1 || semester === 4) && 
+        (resourceTypeRaw === "assignments" || resourceTypeRaw === "sessional_test" || resourceTypeRaw === "pyqs_bank" || resourceTypeRaw === "pyqs_bridge");
+    const isSem2Folder = (semester === 2) && 
+        (resourceTypeRaw === "pyqs_bank" || resourceTypeRaw === "practical_files");
+        
+    if (course === "mca" && (isSem1Or4Folder || isSem2Folder)) {
       if (subjectGroup.style.display !== "none" && subject) {
         let prefix = "";
         if (resourceTypeRaw === "assignments") prefix = "assignment_";
         else if (resourceTypeRaw === "sessional_test") prefix = "sessional_";
         else if (resourceTypeRaw === "pyqs_bank") prefix = "pyq_";
         else if (resourceTypeRaw === "pyqs_bridge") prefix = "pyqbridge_";
+        else if (resourceTypeRaw === "practical_files") prefix = "practical_";
         resource_type = prefix + subject;
       }
     }
@@ -655,8 +661,9 @@
         bridgeOption.style.display = (course === "mca" && semester === "1") ? "block" : "none";
       }
 
-      const needsFolders = course === "mca" && (semester === "1" || semester === "4") && 
-          (resourceSelect.value === "assignments" || resourceSelect.value === "sessional_test" || resourceSelect.value === "pyqs_bank" || resourceSelect.value === "pyqs_bridge");
+      const needsFolders = (course === "mca" && (semester === "1" || semester === "4") && 
+          (resourceSelect.value === "assignments" || resourceSelect.value === "sessional_test" || resourceSelect.value === "pyqs_bank" || resourceSelect.value === "pyqs_bridge")) ||
+          (course === "mca" && semester === "2" && (resourceSelect.value === "pyqs_bank" || resourceSelect.value === "practical_files"));
 
       if (needsFolders) {
           subjectGroup.style.display = "block";
@@ -689,6 +696,13 @@
           { v: "advanced_data_structure", t: "Advanced Data Structure" }
         ];
       }
+    } else if (semester === "2") {
+      subjects = [
+        { v: "operating_system", t: "Operating System & Shell Programming" },
+        { v: "object_technology", t: "Advanced Object Technology" },
+        { v: "computer_networks", t: "Computer Networks & Distributed Systems" },
+        { v: "database_system", t: "Advanced Database Management System" }
+      ];
     } else if (semester === "4") {
       subjects = [
         { v: "Advance_Software_Engineering", t: "Advance Software Engineering" },
