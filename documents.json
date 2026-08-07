@@ -65,13 +65,6 @@
   {
     "course": "mca",
     "semester": 1,
-    "resource_type": "syllabus",
-    "title": "MCA 1st Semester Syllabus",
-    "file_url": "https://example.com/mca_sem1_syllabus.pdf"
-  },
-  {
-    "course": "mca",
-    "semester": 1,
     "resource_type": "bridge_course",
     "title": "Visual Basics",
     "file_url": "https://drive.google.com/file/d/160_1GaM8j84Fza239zO_ZplIGL7HkFhX/view?usp=drive_link"
