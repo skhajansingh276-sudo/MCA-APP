@@ -1,6 +1,13 @@
 [
   {
     "course": "mca",
+    "semester": 2,
+    "resource_type": "project",
+    "title": "Handwriting Studio",
+    "file_url": "https://drive.google.com/file/d/1njz-hmBJTikmY9OQ8shAZpQvn2LnIJT6/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
     "semester": 1,
     "resource_type": "bridge_course",
     "title": "Visual Basics",
