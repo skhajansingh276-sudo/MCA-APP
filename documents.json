@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 1,
+    "resource_type": "pyq_compiler_design",
+    "title": "2021",
+    "file_url": "https://drive.google.com/file/d/10ld37NCuuCv-2f4jDyGL2qcraJfDKpgp/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
     "resource_type": "pyq_advanced_data_structure",
     "title": "2023",
     "file_url": "https://drive.google.com/file/d/1dtCdp5K8dD3BtREg3xciseiw2vRkLOoj/view?usp=drive_link"
