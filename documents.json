@@ -3,6 +3,13 @@
     "course": "mca",
     "semester": 1,
     "resource_type": "bridge_course",
+    "title": "C++ and Data Structure",
+    "file_url": "https://drive.google.com/file/d/1lxxmLG6NAfnE0xWtK-MbsD8eI_6_8iFd/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "bridge_course",
     "title": "Computer fundamental and Programming in C",
     "file_url": "https://drive.google.com/file/d/1-zjo5xolMoOBLhUBh2ddSORPrsNpf5Tp/view?usp=drive_link"
   },
