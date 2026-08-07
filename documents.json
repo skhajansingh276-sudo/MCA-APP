@@ -1,6 +1,69 @@
 [
   {
     "course": "mca",
+    "semester": 2,
+    "resource_type": "pyq_operating_system",
+    "title": "Operating System and Shell Programming(2021-2023)",
+    "file_url": "https://drive.google.com/file/d/1TYesiBnSg5eZuLkaNRljZRJ5YglqHqr3/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 2,
+    "resource_type": "pyq_object_technology",
+    "title": "Advanced Object Technology (2021-2025)",
+    "file_url": "https://drive.google.com/file/d/1R5SKBmGVUecR0gZmBmucmP6Rw15fUNmE/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 2,
+    "resource_type": "pyq_computer_networks",
+    "title": "Computer Networks and Distributed Systems(2021-2024)",
+    "file_url": "https://drive.google.com/file/d/12kFTiSO4OMs5TTp4OKY2lePx8zeRkW8P/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 2,
+    "resource_type": "pyq_database_system",
+    "title": "Advanced DataBase Management System(2021-2024)",
+    "file_url": "https://drive.google.com/file/d/1k4b6NxAhoMIJAapHmmdMEsoUox-g4gDc/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 2,
+    "resource_type": "practical_database_system",
+    "title": "Advanced Database System And Data Warehouse",
+    "file_url": "https://drive.google.com/file/d/1mifbQbTM0bTTXfv_ycytjfVpY5IEc8U4/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 2,
+    "resource_type": "practical_operating_system",
+    "title": "Operating Systems and Shell Programming",
+    "file_url": "https://drive.google.com/file/d/14HihpnRZVvC0Q9rfjerPwN5glrqCBm6U/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 2,
+    "resource_type": "practical_computer_networks",
+    "title": "Computer Networks and Distributed Systems",
+    "file_url": "https://drive.google.com/file/d/1hZaYCKfV28OZpEe1rVq9Fwmxqoslo0U_/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 2,
+    "resource_type": "practical_object_technology",
+    "title": "Advanced Object Technology",
+    "file_url": "https://drive.google.com/file/d/1MwmX7r1byhF7aFLEEE2RnCRFkFT5Y0aV/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 2,
+    "resource_type": "project",
+    "title": "Handwriting Studio",
+    "file_url": "https://drive.google.com/file/d/1njz-hmBJTikmY9OQ8shAZpQvn2LnIJT6/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
     "semester": 1,
     "resource_type": "syllabus",
     "title": "MCA 1st Semester Syllabus",
@@ -12,5 +75,236 @@
     "resource_type": "syllabus",
     "title": "M.Sc. CS 1st Semester Syllabus",
     "file_url": "https://example.com/msc_sem1_syllabus.pdf"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "bridge_course",
+    "title": "Visual Basics",
+    "file_url": "https://drive.google.com/file/d/160_1GaM8j84Fza239zO_ZplIGL7HkFhX/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "practical_files",
+    "title": "Digital Design and Computer Architecture",
+    "file_url": "https://drive.google.com/file/d/1IGwiaLox6q9m5i-bmau33sKCNyk5q16Q/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "bridge_course",
+    "title": "C++ and Data Structure",
+    "file_url": "https://drive.google.com/file/d/1peOlrrC3FiJJRyN39xfDrbaIzRZoUdlp/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "bridge_course",
+    "title": "C++ and Data Structure",
+    "file_url": "https://drive.google.com/file/d/1lxxmLG6NAfnE0xWtK-MbsD8eI_6_8iFd/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "bridge_course",
+    "title": "Computer fundamental and Programming in C",
+    "file_url": "https://drive.google.com/file/d/1-zjo5xolMoOBLhUBh2ddSORPrsNpf5Tp/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "practical_files",
+    "title": "OOPS IN JAVA",
+    "file_url": "https://drive.google.com/file/d/1nqNmCwTQ65Z7Dx_lpXtru8AQqzNQV8iB/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "practical_files",
+    "title": "Computer Graphics",
+    "file_url": "https://drive.google.com/file/d/17pTnJYzri8fXnHDOoCs1NBkQr-EMyOzq/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "practical_files",
+    "title": "Compiler Design",
+    "file_url": "https://drive.google.com/file/d/10ETYzu32bo6IF_Up6X5EhIXpi07LFo7t/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "practical_files",
+    "title": "Advanced Data Structure",
+    "file_url": "https://drive.google.com/file/d/1VedGv9KxfjPOXHLEVBjGi4ZKWHFV0q_B/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_digital_design_arch",
+    "title": "2023",
+    "file_url": "https://drive.google.com/file/d/1YVFWo3Ue_n1yoFkMKBhSwLh8ZDp2LdQr/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_digital_design_arch",
+    "title": "2022",
+    "file_url": "https://drive.google.com/file/d/13YC5LMeddrCKdS4Kdeaf0gu9GG0COlWD/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_digital_design_arch",
+    "title": "2021",
+    "file_url": "https://drive.google.com/file/d/1lfupyTywL27NmV54bDDoENN00m4P-oPf/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_compiler_design",
+    "title": "2023",
+    "file_url": "https://drive.google.com/file/d/13XEsKqQTTxdHkZLZo4WbGxKmRczk389J/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_compiler_design",
+    "title": "2022",
+    "file_url": "https://drive.google.com/file/d/1BL0vvpw3weREBBsUd_kqij8DFogMRiSE/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_compiler_design",
+    "title": "2021",
+    "file_url": "https://drive.google.com/file/d/10ld37NCuuCv-2f4jDyGL2qcraJfDKpgp/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_advanced_data_structure",
+    "title": "2023",
+    "file_url": "https://drive.google.com/file/d/1dtCdp5K8dD3BtREg3xciseiw2vRkLOoj/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_advanced_data_structure",
+    "title": "DEC 2022",
+    "file_url": "https://drive.google.com/file/d/1giffbzei3haFomCdJOc-4UZ9rRf3cLx7/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_advanced_data_structure",
+    "title": "MAY 2022",
+    "file_url": "https://drive.google.com/file/d/134YABKSrEjsX5Pq3jZwmGgfDlVZmt7kq/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_advanced_data_structure",
+    "title": "2021",
+    "file_url": "https://drive.google.com/file/d/1GiU4eiYNTJJnX0tJJOPSmcLYNcIvLU2Z/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_oops_java",
+    "title": "2023",
+    "file_url": "https://drive.google.com/file/d/1te6_LwR8wnaWlqPbdvF4TLVJl2KQV_nN/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_oops_java",
+    "title": "2022",
+    "file_url": "https://drive.google.com/file/d/1f6GsMXWJ1BdPEhtKrVCHfpcdOP2d-SGV/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_oops_java",
+    "title": "2021",
+    "file_url": "https://drive.google.com/file/d/18KyOiqYsFSybu9eClZw8AK2IIsTSCRru/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_computer_graphics",
+    "title": "2023",
+    "file_url": "https://drive.google.com/file/d/14fAzVolBgAZYxdIEKJqE1XIdYJJvDnMS/view?usp=sharing"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_computer_graphics",
+    "title": "2022",
+    "file_url": "https://drive.google.com/file/d/1lphaLiPnn1HH7u639gBQ1TLJLty4_24g/view?usp=sharing"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyq_computer_graphics",
+    "title": "2021",
+    "file_url": "https://drive.google.com/file/d/15cqvOcxudFr_nuMzWgVVuZsORd7l6Jds/view?usp=sharing"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyqbridge_comp_fundamental_c",
+    "title": "2022",
+    "file_url": "https://drive.google.com/file/d/10BQybibuiLTyIVN2IS7YjHO0P7_gCylL/view?usp=sharing"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyqbridge_comp_fundamental_c",
+    "title": "2021",
+    "file_url": "https://drive.google.com/file/d/1TeuhVbrSLk7V1HFiIyn69EC8OL87Fm6M/view?usp=sharing"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyqbridge_visual_basic",
+    "title": "2023",
+    "file_url": "https://drive.google.com/file/d/1hqjWy-5pNxummkyXcYgGUq-59bNtqtfr/view?usp=sharing"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyqbridge_visual_basic",
+    "title": "2022",
+    "file_url": "https://drive.google.com/file/d/1A9pe1As-x87_vLRft5hag0TvtLHg8LCt/view?usp=sharing"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyqbridge_visual_basic",
+    "title": "2021",
+    "file_url": "https://drive.google.com/file/d/14w7N6gSEt7psS0pJqcsiRYhbSLm4dN5A/view?usp=sharing"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyqbridge_cpp_data_structure",
+    "title": "2023",
+    "file_url": "https://drive.google.com/file/d/120qEvB01yEWNnx5sttnFNM2s2GYcNCD7/view?usp=sharing"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyqbridge_cpp_data_structure",
+    "title": "2022",
+    "file_url": "https://drive.google.com/file/d/1PJv7BbQkluaz0s71M6lWgqvn_2PfvMbK/view?usp=sharing"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "pyqbridge_cpp_data_structure",
+    "title": "2021",
+    "file_url": "https://drive.google.com/file/d/1ulKbpNnnPOb4EpGJ3IjvzSyjRmiHTmqh/view?usp=sharing"
   }
 ]
