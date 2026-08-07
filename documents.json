@@ -2,63 +2,56 @@
   {
     "course": "mca",
     "semester": 2,
-    "resource_type": "pyqs_bank",
+    "resource_type": "pyq_operating_system",
     "title": "Operating System and Shell Programming(2021-2023)",
     "file_url": "https://drive.google.com/file/d/1TYesiBnSg5eZuLkaNRljZRJ5YglqHqr3/view?usp=drive_link"
   },
   {
     "course": "mca",
     "semester": 2,
-    "resource_type": "pyqs_bank",
+    "resource_type": "pyq_object_technology",
     "title": "Advanced Object Technology (2021-2025)",
     "file_url": "https://drive.google.com/file/d/1R5SKBmGVUecR0gZmBmucmP6Rw15fUNmE/view?usp=drive_link"
   },
   {
     "course": "mca",
     "semester": 2,
-    "resource_type": "pyqs_bank",
+    "resource_type": "pyq_computer_networks",
     "title": "Computer Networks and Distributed Systems(2021-2024)",
     "file_url": "https://drive.google.com/file/d/12kFTiSO4OMs5TTp4OKY2lePx8zeRkW8P/view?usp=drive_link"
   },
   {
     "course": "mca",
     "semester": 2,
-    "resource_type": "pyqs_bank",
+    "resource_type": "pyq_database_system",
     "title": "Advanced DataBase Management System(2021-2024)",
     "file_url": "https://drive.google.com/file/d/1k4b6NxAhoMIJAapHmmdMEsoUox-g4gDc/view?usp=drive_link"
   },
   {
     "course": "mca",
     "semester": 2,
-    "resource_type": "practical_files",
+    "resource_type": "practical_database_system",
     "title": "Advanced Database System And Data Warehouse",
     "file_url": "https://drive.google.com/file/d/1mifbQbTM0bTTXfv_ycytjfVpY5IEc8U4/view?usp=drive_link"
   },
   {
     "course": "mca",
     "semester": 2,
-    "resource_type": "practical_files",
+    "resource_type": "practical_operating_system",
     "title": "Operating Systems and Shell Programming",
     "file_url": "https://drive.google.com/file/d/14HihpnRZVvC0Q9rfjerPwN5glrqCBm6U/view?usp=drive_link"
   },
   {
     "course": "mca",
     "semester": 2,
-    "resource_type": "practical_files",
+    "resource_type": "practical_computer_networks",
     "title": "Computer Networks and Distributed Systems",
     "file_url": "https://drive.google.com/file/d/1hZaYCKfV28OZpEe1rVq9Fwmxqoslo0U_/view?usp=drive_link"
   },
   {
     "course": "mca",
     "semester": 2,
-    "resource_type": "practical_files",
-    "title": "Cloud Computing",
-    "file_url": "https://drive.google.com/file/d/1rae8tlVmyyVngcWbVOM79YZ4mY17lbwQ/view?usp=drive_link"
-  },
-  {
-    "course": "mca",
-    "semester": 2,
-    "resource_type": "practical_files",
+    "resource_type": "practical_object_technology",
     "title": "Advanced Object Technology",
     "file_url": "https://drive.google.com/file/d/1MwmX7r1byhF7aFLEEE2RnCRFkFT5Y0aV/view?usp=drive_link"
   },
@@ -68,6 +61,20 @@
     "resource_type": "project",
     "title": "Handwriting Studio",
     "file_url": "https://drive.google.com/file/d/1njz-hmBJTikmY9OQ8shAZpQvn2LnIJT6/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
+    "resource_type": "syllabus",
+    "title": "MCA 1st Semester Syllabus",
+    "file_url": "https://example.com/mca_sem1_syllabus.pdf"
+  },
+  {
+    "course": "msc",
+    "semester": 1,
+    "resource_type": "syllabus",
+    "title": "M.Sc. CS 1st Semester Syllabus",
+    "file_url": "https://example.com/msc_sem1_syllabus.pdf"
   },
   {
     "course": "mca",
