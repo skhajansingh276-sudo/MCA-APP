@@ -3,6 +3,13 @@
     "course": "msc",
     "semester": 1,
     "resource_type": "practical_files",
+    "title": "Cisco",
+    "file_url": "https://drive.google.com/file/d/1_WOchPNIhXQRjwWsLf8rMATOhFwaSf4A/view?usp=drive_link"
+  },
+  {
+    "course": "msc",
+    "semester": 1,
+    "resource_type": "practical_files",
     "title": "C language",
     "file_url": "https://drive.google.com/file/d/1Oi8GcsEOC2AS8EQGqvNr-D1BmrWjvnI0/view?usp=drive_link"
   },
