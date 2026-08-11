@@ -2,6 +2,13 @@
   {
     "course": "msc",
     "semester": 1,
+    "resource_type": "practical_files",
+    "title": "Assembly",
+    "file_url": "https://drive.google.com/file/d/1ImicDvfMi7K3Jo4XCdAIKuK27UITaXrW/view?usp=drive_link"
+  },
+  {
+    "course": "msc",
+    "semester": 1,
     "resource_type": "sessional_test",
     "title": "Database Management",
     "file_url": "https://drive.google.com/file/d/1QfqIl6n8Y_9SkEprAAOEvgWEpikENn3f/view?usp=drive_link"
