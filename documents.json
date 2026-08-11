@@ -1,6 +1,13 @@
 [
   {
     "course": "mca",
+    "semester": 0,
+    "resource_type": "syllabus",
+    "title": "Syllabus",
+    "file_url": "https://drive.google.com/file/d/1P3MuSir1i4eJqAAwxcnlp-C0cKb6UZcs/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
     "semester": 3,
     "resource_type": "pyq_network_programming",
     "title": "2025",
