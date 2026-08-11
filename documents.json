@@ -3,6 +3,13 @@
     "course": "msc",
     "semester": 1,
     "resource_type": "sessional_test",
+    "title": "Database Management",
+    "file_url": "https://drive.google.com/file/d/1QfqIl6n8Y_9SkEprAAOEvgWEpikENn3f/view?usp=drive_link"
+  },
+  {
+    "course": "msc",
+    "semester": 1,
+    "resource_type": "sessional_test",
     "title": "Computer Organisation and Architecture",
     "file_url": "https://drive.google.com/file/d/1y4LxHqulQJzTwewBQD8bGZhPUqFG2heC/view?usp=drive_link"
   },
