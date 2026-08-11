@@ -3,6 +3,13 @@
     "course": "msc",
     "semester": 1,
     "resource_type": "practical_files",
+    "title": "SQL",
+    "file_url": "https://drive.google.com/file/d/12_KwDhJHvjW6YKXYmgQDxDQpK70vv9_R/view?usp=drive_link"
+  },
+  {
+    "course": "msc",
+    "semester": 1,
+    "resource_type": "practical_files",
     "title": "Cisco",
     "file_url": "https://drive.google.com/file/d/1_WOchPNIhXQRjwWsLf8rMATOhFwaSf4A/view?usp=drive_link"
   },
