@@ -1,5 +1,12 @@
 [
   {
+    "course": "msc",
+    "semester": 1,
+    "resource_type": "sessional_test",
+    "title": "Computer fundamental and programming in c",
+    "file_url": "https://drive.google.com/file/d/1T5_tJDcM2HXeEpZzqKaZpHU-stI9Mm_z/view?usp=drive_link"
+  },
+  {
     "course": "mca",
     "semester": 0,
     "resource_type": "syllabus",
