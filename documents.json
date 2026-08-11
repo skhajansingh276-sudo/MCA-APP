@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 2,
+    "resource_type": "pyq_cloud_computing",
+    "title": "2022-2024-2025",
+    "file_url": "https://drive.google.com/file/d/11V7qq9Jo5lqsicQYxenfwyaCi60cZM9t/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 2,
     "resource_type": "pyq_operating_system",
     "title": "Operating System and Shell Programming(2021-2023)",
     "file_url": "https://drive.google.com/file/d/1TYesiBnSg5eZuLkaNRljZRJ5YglqHqr3/view?usp=drive_link"
