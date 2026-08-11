@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 3,
+    "resource_type": "pyq_android_development",
+    "title": "Data Science and Big Data Swyam",
+    "file_url": "https://drive.google.com/file/d/1qKLT7GpmlD28haqnqNBYlK27NpEWwHV5/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 3,
     "resource_type": "pyq_network_programming",
     "title": "2025",
     "file_url": "https://drive.google.com/file/d/1yqmFOJfcTB3il_okHXpm7v4WpxAPQF78/view?usp=drive_link"
