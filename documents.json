@@ -3,6 +3,13 @@
     "course": "msc",
     "semester": 1,
     "resource_type": "sessional_test",
+    "title": "Computer Organisation and Architecture",
+    "file_url": "https://drive.google.com/file/d/1y4LxHqulQJzTwewBQD8bGZhPUqFG2heC/view?usp=drive_link"
+  },
+  {
+    "course": "msc",
+    "semester": 1,
+    "resource_type": "sessional_test",
     "title": "Computer Networks",
     "file_url": "https://drive.google.com/file/d/1et9gETrg-LnIfE2SOq-N0vU_n8XMC4vD/view?usp=drive_link"
   },
