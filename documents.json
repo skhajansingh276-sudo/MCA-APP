@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 3,
+    "resource_type": "pyq_computer_vision",
+    "title": "2025",
+    "file_url": "https://drive.google.com/file/d/1et8ZOvY9Eghn7VdWcy4w1xmf6A4slL99/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 3,
     "resource_type": "pyq_ai_computational_intelligence",
     "title": "2025",
     "file_url": "https://drive.google.com/file/d/1Ey2IMBFKxP5tpQtRYjiMequheVccByrw/view?usp=drive_link"
