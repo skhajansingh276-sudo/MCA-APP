@@ -1,5 +1,12 @@
 [
   {
+    "course": "mca",
+    "semester": 3,
+    "resource_type": "pyq_data_mining_analytics",
+    "title": "2022-2024",
+    "file_url": "https://drive.google.com/file/d/13Tplyu8oAgEi0Usi2bl-b2QUVIhxforl/view?usp=drive_link"
+  },
+  {
     "course": "msc",
     "semester": 1,
     "resource_type": "practical_files",
