@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 3,
+    "resource_type": "pyq_ai_computational_intelligence",
+    "title": "2022-2024",
+    "file_url": "https://drive.google.com/file/d/1wqPxJ6gsFa9dOu8dGT6-UK-ok7kgfort/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 3,
     "resource_type": "pyq_data_mining_analytics",
     "title": "2022-2024",
     "file_url": "https://drive.google.com/file/d/13Tplyu8oAgEi0Usi2bl-b2QUVIhxforl/view?usp=drive_link"
