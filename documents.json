@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 3,
+    "resource_type": "pyq_network_programming",
+    "title": "2022",
+    "file_url": "https://drive.google.com/file/d/1qUEJN6eM8zYg53B5FL9TZN7geLoo-Bv3/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 3,
     "resource_type": "pyq_android_development",
     "title": "2025",
     "file_url": "https://drive.google.com/file/d/1nvXf2bSo2EhzVK5focURmIdBh7XQyS2q/view?usp=drive_link"
