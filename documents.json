@@ -113,13 +113,6 @@
   },
   {
     "course": "mca",
-    "semester": 3,
-    "resource_type": "pyq_android_development",
-    "title": "2025",
-    "file_url": "https://drive.google.com/file/d/1nvXf2bSo2EhzVK5focURmIdBh7XQyS2q/view?usp=drive_link"
-  },
-  {
-    "course": "mca",
     "semester": 2,
     "resource_type": "practical_cloud_computing",
     "title": "Cloud computing",
