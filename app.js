@@ -145,18 +145,27 @@ document.querySelectorAll('.drawer-link').forEach(link => {
       navHistory.length = 0;
       navHistory.push('screen-home');
       navigateTo('screen-home', 'CS Department', false);
-    } else if (screen === 'courses') {
+    } else {
       if (currentScreen !== 'screen-home') {
         navHistory.length = 0;
         navHistory.push('screen-home');
         navigateTo('screen-home', 'CS Department', false);
         setTimeout(() => {
-          const section = document.getElementById('courses');
+          const section = document.getElementById(screen);
           section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 400);
       } else {
-        const section = document.getElementById('courses');
+        const section = document.getElementById(screen);
         section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // Also update active state on bottom nav if exists
+      const btn = document.getElementById('nav-' + screen);
+      if (btn) {
+        document.querySelectorAll('#main-bottom-nav .nav-item').forEach(item => {
+          item.classList.remove('active');
+        });
+        btn.classList.add('active');
       }
     }
   });
@@ -353,13 +362,11 @@ function handlePyqsClick(el, event) {
   }
   
   if (activeCourseId === 'mca' && activeSemesterNum == 1) {
-    const dropdown = document.getElementById('pyqs-dropdown');
-    const arrow = document.getElementById('pyqs-arrow');
-    if (dropdown) {
-      const isOpen = dropdown.classList.contains('open');
-      dropdown.classList.toggle('open');
-      if (arrow) arrow.style.transform = isOpen ? 'none' : 'rotate(90deg)';
-    }
+    const folders = [
+      { displayName: "Bridge Course", dbKey: "bridge", isPyqOption: true },
+      { displayName: "Non Bridge Course", dbKey: "non-bridge", isPyqOption: true }
+    ];
+    showSpecialFoldersScreen('PYQs Bank', folders);
   } else {
     const folders = getSubjectFolders(activeCourseId, activeSemesterNum);
     if (folders.length > 0) {
@@ -371,7 +378,7 @@ function handlePyqsClick(el, event) {
 }
 
 function handlePyqsSubClick(type, event) {
-  if (event) event.stopPropagation();
+  if (event && event.stopPropagation) event.stopPropagation();
   if (type === 'bridge') {
     const folders = [
       { displayName: "Computer Fundamental and Programming in C", dbKey: "comp_fundamental_c" },
@@ -393,16 +400,45 @@ function handlePracticalClick(el, event) {
   }
   
   if (activeCourseId === 'mca' && activeSemesterNum == 1) {
-    const dropdown = document.getElementById('practical-dropdown');
-    const arrow = document.getElementById('practical-arrow');
-    if (dropdown) {
-      const isOpen = dropdown.classList.contains('open');
-      dropdown.classList.toggle('open');
-      if (arrow) arrow.style.transform = isOpen ? 'none' : 'rotate(90deg)';
-    }
+    const folders = [
+      { displayName: "Bridge Course", dbKey: "Bridge Course", isExact: true },
+      { displayName: "Non Bridge Course", dbKey: "Practical Files", isExact: true }
+    ];
+    showSpecialFoldersScreen('Practical Files', folders);
   } else {
     handleResourceClick(el, 'Practical Files', event);
   }
+}
+
+function showSpecialFoldersScreen(title, folders) {
+  const listContainer = document.getElementById('subject-folders-list');
+  const headerEl = document.getElementById('subject-folders-header');
+  
+  if (headerEl) headerEl.textContent = title;
+  if (listContainer) listContainer.innerHTML = '';
+  
+  folders.forEach(folder => {
+    const card = document.createElement('div');
+    card.style.cssText = "background: white; border-radius: 12px; padding: 16px; display: flex; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.06); cursor: pointer; border: 1px solid #e2e8f0; width: 100%; box-sizing: border-box; margin-bottom: 12px;";
+    card.innerHTML = `
+      <div style="background: #fffbeb; width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 16px; font-size: 20px;">📁</div>
+      <div style="flex: 1;">
+        <div style="font-weight: 700; color: #0f172a; font-size: 15px; font-family: 'Poppins', sans-serif;">${folder.displayName}</div>
+        <div style="color: #6b7280; font-size: 13px; font-family: 'Poppins', sans-serif; font-weight: 500; margin-top: 2px;">Tap to view files</div>
+      </div>
+      <div style="color: #94a3b8; font-size: 24px;">›</div>
+    `;
+    card.onclick = () => {
+      if (folder.isExact) {
+        fetchAndShowResources(folder.displayName, folder.dbKey.toLowerCase());
+      } else if (folder.isPyqOption) {
+        handlePyqsSubClick(folder.dbKey);
+      }
+    };
+    listContainer.appendChild(card);
+  });
+  
+  navigateTo('screen-subject-folders', title);
 }
 
 function showSubjectFoldersScreen(title, prefix, folders, exactMatch = false) {

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "notif_1",
+    "message": "Click here for MCA & M.Sc. CS Sessional Date Sheet 2026",
+    "date": "August 21, 2026",
+    "courseId": "mca",
+    "semester": 2,
+    "resourceType": "sessional_test"
+  }
+]
