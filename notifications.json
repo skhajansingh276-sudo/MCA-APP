@@ -1,5 +1,14 @@
 [
   {
+    "id": "1788356261620",
+    "message": "AI Unit 1 Notes Uploaded",
+    "date": "September 2, 2026",
+    "courseId": "mca",
+    "semester": 3,
+    "resourceType": "lecture_notes",
+    "subjectKey": "ai_computational_intelligence"
+  },
+  {
     "id": "1787402139167",
     "message": "MCA 3rd Semester PyQ's Uploaded",
     "date": "August 22, 2026",
