@@ -1,10 +1,29 @@
 [
   {
-    "id": "notif_1",
-    "message": "Click here for MCA & M.Sc. CS Sessional Date Sheet 2026",
-    "date": "August 21, 2026",
+    "id": "1788356261620",
+    "message": "AI Unit 1 Notes Uploaded",
+    "date": "September 2, 2026",
     "courseId": "mca",
-    "semester": 2,
-    "resourceType": "sessional_test"
+    "semester": 3,
+    "resourceType": "lecture_notes",
+    "subjectKey": "ai_computational_intelligence"
+  },
+  {
+    "id": "1787402139167",
+    "message": "MCA 3rd Semester PyQ's Uploaded",
+    "date": "August 22, 2026",
+    "courseId": "mca",
+    "semester": 3,
+    "resourceType": "pyqs_bank"
+  },
+  {
+    "id": "1787229281726",
+    "message": "MCA 1ST SEMESTER ALL PRACTICAL FILES AND PYQ'S UPLOADED",
+    "date": "August 20, 2026"
+  },
+  {
+    "id": "1786194250537",
+    "message": "IN THIS APP THERE ARE PYQ'S AND PRACTICAL FILES ONLY REMAINING DOCUMENTS WILL BE UPLOADED SOON",
+    "date": "August 8, 2026"
   }
 ]
