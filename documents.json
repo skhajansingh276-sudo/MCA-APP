@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 3,
+    "resource_type": "note_ai_computational_intelligence",
+    "title": "UNIT 1",
+    "file_url": "https://drive.google.com/file/d/1CEJCIr-CKUvn0v_E5Ffs7mvqnNx34iPU/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 3,
     "resource_type": "pyq_network_programming",
     "title": "2022",
     "file_url": "https://drive.google.com/file/d/1qUEJN6eM8zYg53B5FL9TZN7geLoo-Bv3/view?usp=drive_link"
