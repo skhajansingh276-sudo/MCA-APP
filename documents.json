@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 3,
+    "resource_type": "sessional_data_mining_analytics",
+    "title": "2026",
+    "file_url": "https://drive.google.com/file/d/18QBwn7u9nrzIz-FBGJS0zuZ0QDCqy2B5/view?usp=drivesdk"
+  },
+  {
+    "course": "mca",
+    "semester": 3,
     "resource_type": "note_ai_computational_intelligence",
     "title": "UNIT 1",
     "file_url": "https://drive.google.com/file/d/1CEJCIr-CKUvn0v_E5Ffs7mvqnNx34iPU/view?usp=drive_link"
