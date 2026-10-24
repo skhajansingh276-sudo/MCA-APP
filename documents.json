@@ -1,5 +1,12 @@
 [
   {
+    "course": "mca",
+    "semester": 3,
+    "resource_type": "sessional_ai_computational_intelligence",
+    "title": "1.  ARTIFICIAL INTELLIGENCE AND COMPUTATIONAL INTELLIGENCE",
+    "file_url": "https://drive.google.com/file/d/1RbPUTNFNxu2pEGjdeXUhNzT1K84Dbpel/view?usp=drivesdk"
+  },
+  {
     "course": "msc",
     "semester": 3,
     "resource_type": "sessional_test",
