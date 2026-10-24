@@ -1,5 +1,12 @@
 [
   {
+    "course": "msc",
+    "semester": 3,
+    "resource_type": "sessional_test",
+    "title": "1. Java Programming",
+    "file_url": "https://drive.google.com/file/d/1Px1S4W-2tz5pv2Ii5KadtaGoYgOSSi31/view?usp=drivesdk"
+  },
+  {
     "course": "mca",
     "semester": 3,
     "resource_type": "sessional_computer_vision",
