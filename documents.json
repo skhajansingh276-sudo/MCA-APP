@@ -1,5 +1,12 @@
 [
   {
+    "course": "mca",
+    "semester": 3,
+    "resource_type": "sessional_computer_vision",
+    "title": "1.  2026",
+    "file_url": "https://drive.google.com/file/d/1OsCT9lFEhe38DV-JMxuI3xaBQll_ZcRc/view?usp=drivesdk"
+  },
+  {
     "course": "msc",
     "semester": 3,
     "resource_type": "sessional_test",
