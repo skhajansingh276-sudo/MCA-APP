@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 1,
+    "resource_type": "sessional_compiler_design",
+    "title": "2023",
+    "file_url": "https://drive.google.com/file/d/1gw66k7kEPnOmX8-Q_qzMvH4KVUfPTP20/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
     "resource_type": "sessional_advanced_data_structure",
     "title": "2025(1)",
     "file_url": "https://drive.google.com/file/d/1xncj_J1QxbHi9vIvVvwot7pEs039G52N/view?usp=drive_link"
