@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 1,
+    "resource_type": "sessional_oops_java",
+    "title": "2023",
+    "file_url": "https://drive.google.com/file/d/1zlob9r-Nts0mBsCZkeUqcmeU_k0KpZ51/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
     "resource_type": "sessional_computer_graphics",
     "title": "2025(1)",
     "file_url": "https://drive.google.com/file/d/1E18-O5Fr46hqJ6RowZlR39vqr1Sy1Wsb/view?usp=drive_link"
