@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 1,
+    "resource_type": "sessional_computer_graphics",
+    "title": "2025(2)",
+    "file_url": "https://drive.google.com/file/d/1W3OOakii_RKFZgZvGaqgCLzt8gvDzv9c/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
     "resource_type": "sessional_compiler_design",
     "title": "2025(2)",
     "file_url": "https://drive.google.com/file/d/1EuA-OoJG0ugUi-j0Z_e70iwWstvN76ip/view?usp=drive_link"
