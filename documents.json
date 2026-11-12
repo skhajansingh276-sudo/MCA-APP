@@ -1,6 +1,13 @@
 [
   {
     "course": "mca",
+    "semester": 3,
+    "resource_type": "practical_ai_computational_intelligence",
+    "title": "AI AND CI",
+    "file_url": "https://drive.google.com/file/d/1h1j0ViRAFo3cBgZ1TDFv4xZGJH5XfwVd/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
     "semester": 1,
     "resource_type": "sessional_digital_design_arch",
     "title": "2025(2)",
