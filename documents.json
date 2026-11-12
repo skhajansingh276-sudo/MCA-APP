@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 1,
+    "resource_type": "sessional_computer_graphics",
+    "title": "2024",
+    "file_url": "https://drive.google.com/file/d/1ahJH4NdQjctyMOpee5qrQjdR3MG1Sf3c/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 1,
     "resource_type": "sessional_advanced_data_structure",
     "title": "2023",
     "file_url": "https://drive.google.com/file/d/1YuCEiP3AJc5vx_A2DRdnEAmRNC7_zptK/view?usp=drive_link"
