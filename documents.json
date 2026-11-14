@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 3,
+    "resource_type": "practical_data_mining_analytics",
+    "title": "Data Mining",
+    "file_url": "https://drive.google.com/file/d/1WD8J1jOF0pCTs-9SBH92m2UzGBx9XS9h/view?usp=drivesdk"
+  },
+  {
+    "course": "mca",
+    "semester": 3,
     "resource_type": "practical_network_programming",
     "title": "Network Programming",
     "file_url": "https://drive.google.com/file/d/10rgWZJrcnY0ec8oQyGMaMFQEv_TsQj7V/view?usp=drive_link"
