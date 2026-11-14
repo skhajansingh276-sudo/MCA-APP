@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 3,
+    "resource_type": "practical_computer_vision",
+    "title": "Computer Vision",
+    "file_url": "https://drive.google.com/file/d/1jP32tBhzbtcPvAcNtn9NEv48M9GZ109_/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 3,
     "resource_type": "practical_android_development",
     "title": "Android Mobile Application Development",
     "file_url": "https://drive.google.com/file/d/1Urjbpjx0lod2F7dBwoivGdz117K2J6xz/view?usp=drive_link"
