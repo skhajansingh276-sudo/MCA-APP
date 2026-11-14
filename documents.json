@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 3,
+    "resource_type": "practical_network_programming",
+    "title": "Network Programming",
+    "file_url": "https://drive.google.com/file/d/10rgWZJrcnY0ec8oQyGMaMFQEv_TsQj7V/view?usp=drive_link"
+  },
+  {
+    "course": "mca",
+    "semester": 3,
     "resource_type": "practical_computer_vision",
     "title": "Computer Vision",
     "file_url": "https://drive.google.com/file/d/1jP32tBhzbtcPvAcNtn9NEv48M9GZ109_/view?usp=drive_link"
