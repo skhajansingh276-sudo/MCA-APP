@@ -2,6 +2,13 @@
   {
     "course": "mca",
     "semester": 3,
+    "resource_type": "practical_computer_vision",
+    "title": "Word File",
+    "file_url": "https://docs.google.com/document/d/1Bn_LxlgFWEI2k3kcoIhFbMOIxt8cCpN_/edit?usp=drivesdk&ouid=103702699470165130862&rtpof=true&sd=true"
+  },
+  {
+    "course": "mca",
+    "semester": 3,
     "resource_type": "practical_android_development",
     "title": "Word File",
     "file_url": "https://docs.google.com/document/d/1BcabS4TtIutfKTWxrWOxiTEHByla5PXe/edit?usp=drivesdk&ouid=103702699470165130862&rtpof=true&sd=true"
